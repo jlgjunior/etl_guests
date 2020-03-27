@@ -38,7 +38,7 @@ def importFromRawData():
 
 def importFromGuest():
   for guest in Guest.query.all():
-    person = Person(None, guest.nome, guest.email, guest.idHospede,date.today(),guest.dataNasc,guest.dataHosped,0)
+    person = Person(None, guest.nome, guest.email, guest.idHospede,date.today(),guest.dataNasc,guest.dataHosped,0,None)
     person.addNew() 
 
 

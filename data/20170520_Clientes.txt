@@ -1,5 +1,0 @@
-e-mail	Nome	DataHospedagem
-maria@maria.com.br	Maria	2017-05-19
-gabriel@gabriel.com.br	Gabriel	2017-05-18
-xavier@xavier.com.br	Jonas	2017-05-11
-ane@ane.com.br	Ane	2017-05-18
