@@ -15,10 +15,7 @@ class Person(db.Model):
   qtdeHospedag = db.Column(db.Integer)
 
   def __init__(self, id, nome, email, idExterno, dataCadastro, dataNasc, ultimaHosp, qtdeHospedag):
-    if id is None:
-      id = db.session.query(func.max(Person.id)).all()
-    else:
-      self.id = id
+    self.id = id
     self.nome = nome
     self.email = email
     self.idExterno = idExterno
@@ -26,3 +23,22 @@ class Person(db.Model):
     self.dataNasc = dataNasc
     self.ultimaHosp = ultimaHosp
     self.qtdeHospedag = qtdeHospedag
+
+  def addNew(self):
+    listPeople = db.session.query(Person).filter(Person.idExterno == self.idExterno).all() 
+    if listPeople == []:
+      print('adding')
+      self.id = db.session.query(func.max(Person.id)).all()[0][0]+1
+      db.session.add(self)
+      db.session.commit()
+    else:
+      oldPerson = listPeople[0]
+      self.id = oldPerson.id
+      if oldPerson.qtdeHospedag is None:
+        oldPerson.qtdeHospedag = 0
+      if oldPerson.ultimaHosp != self.ultimaHosp:
+        self.qtdeHospedag = oldPerson.qtdeHospedag + 1
+      db.session.merge(self)
+      db.session.commit()
+      print('already exists')
+
