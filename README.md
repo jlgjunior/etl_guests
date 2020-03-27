@@ -20,10 +20,13 @@ python3 manageCli.py seed
 Com isso o banco de dados é inicializado com os valores iniciais de T0.
 
 Após isso rodar o arquivo ETL.py
-python3 ETL.py
+nohup python3 ETL.py &
+disown
 
 O serviço continuamente consulta a tabela hospedes na base stag_ini e arquivos txt com campos separados por tab, como era o arquivo de exemplo, localizados na pasata data/
 
 Os valores encontrados na tabela hospedes atualizam valores na tabela pessoas da base cli, tabela que também é atualizada pelos arquivos da pasta data, porém apenas para novas entradas, visto que o arquivo não fornece nenhum identificador único de uma pessoa.
+
+A tabela pessoasTableT2.csv contém o csv com os dados da tabela no tempo T2.
 
 A verificação de importaçao de novos dados para a tabela pessoas da base cli é realizada a cada 30s.
