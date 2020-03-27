@@ -15,6 +15,8 @@ class ProductionConfigStag(ConfigStag):
 class StagingConfigStag(ConfigStag):
   DEVELOPMENT = True
   DEBUG = True
+  SQLALCHEMY_TRACK_MODIFICATION = False 
+
 
 class DevelopmentConfigStag(ConfigStag):
   DEVELOPMENT = True

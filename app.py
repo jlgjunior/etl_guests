@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import config
 import os
+import configCli, configStag
 
 appStag = Flask(__name__)
 appStag.config.from_object(configStag.StagingConfigStag)
@@ -12,7 +12,7 @@ appCli.config.from_object(configCli.StagingConfigCli)
 appCli.config['SQL_ALCHEMY_TRACK_MODIFICATIONS'] = False
 
 dbStag = SQLAlchemy(appStag)
-dbclit = SQLAlchemy(appCli)
+dbCli = SQLAlchemy(appCli)
 
 if __name__ == '__main__':
   appCli.run()

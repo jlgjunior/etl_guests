@@ -1,0 +1,9 @@
+id,nome,email,idExterno,dataCadastro,dataNasc,ultimaHosp,qtdeHospedag
+123,João,joao@joao.com.br,22E,2017-02-01,,2010-10-22,1
+456,Maria,maria@maria.com.br,,2015-02-01,,,
+991,Armando,armando@teste.com.br,73F,2020-03-27,1990-03-01,2017-02-10,0
+992,João,joao@joao.com.br,33W,2020-03-27,1984-01-21,2017-02-10,0
+789,José,jose@jose.com.br,12D,2020-03-27,,2017-02-10,4
+990,Maico,maico@terra.com.br,43F,2020-03-27,1990-11-22,2017-02-10,11
+993,Will,will@will.com.br,20S,2020-03-27,1950-05-11,2017-02-10,0
+994,Carla,jose@jose.com.br,84X,2020-03-27,1991-11-22,2017-02-10,0
