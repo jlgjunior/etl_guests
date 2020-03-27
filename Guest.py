@@ -2,7 +2,7 @@ from app import dbStag as db
 
 class Guest(db.Model):
 
-  __tablename__ = 'guest'
+  __tablename__ = 'hospedes'
 
   idHospede = db.Column(db.String(), primary_key=True)
   nome = db.Column(db.String(), nullable=False)
