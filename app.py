@@ -1,8 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
-from configStag import configStag
-from configCli import configCli
+import configCli, configStag
 
 appStag = Flask(__name__)
 appStag.config.from_object(configStag.StagingConfigStag)

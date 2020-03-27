@@ -3,7 +3,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from app import appCli, dbCli
 import configCli
-import Person
+from Person import Person
 
 target_metadata = [dbCli.Model.metadata]
 
@@ -18,7 +18,7 @@ def seed():
   Person(456,'Maria','maria@maria.com.br',None,'01/02/2015',None,None,None),
   Person(789,'José','jose@jose.com.br','12D','04/01/2016',None,'01/01/2015',3),
   Person(990,'Maico','maico@terra.com.br','43F','01/02/2015',None,'09/10/2009',10)])
-  dbCli.commit()
+  dbCli.session.commit()
   
 
 manager.add_command('db', MigrateCommand)
