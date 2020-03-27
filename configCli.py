@@ -8,6 +8,7 @@ class ConfigCli(object):
   CSRF_ENABLED = True
   SECRET_KEY = 'application'
   SQLALCHEMY_DATABASE_URI = 'postgresql:///cli'
+  
 
 class ProductionConfigCli(ConfigCli):
   DEBUG = False
@@ -15,6 +16,7 @@ class ProductionConfigCli(ConfigCli):
 class StagingConfigCli(ConfigCli):
   DEVELOPMENT = True
   DEBUG = True
+  SQLALCHEMY_TRACK_MODIFICATION = False
 
 class DevelopmentConfigCli(ConfigCli):
   DEVELOPMENT = True

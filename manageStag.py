@@ -4,6 +4,7 @@ from flask_migrate import Migrate, MigrateCommand
 from app import appStag, dbStag
 import configStag
 from Guest import Guest
+from RawData import RawData
 
 target_metadata = [dbStag.Model.metadata]
 

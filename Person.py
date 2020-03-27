@@ -1,5 +1,7 @@
 from app import dbCli as db
 from sqlalchemy import func
+from RawData import RawData
+from datetime import date
 
 class Person(db.Model):
 
@@ -24,10 +26,13 @@ class Person(db.Model):
     self.ultimaHosp = ultimaHosp
     self.qtdeHospedag = qtdeHospedag
 
+  @classmethod
+  def createFromRawData(cls,rawData):
+    return Person(None,rawData.nome,rawData.email,None,date.today(),None,rawData.dataHosped,1)
+
   def addNew(self):
-    listPeople = db.session.query(Person).filter(Person.idExterno == self.idExterno).all() 
+    listPeople = db.session.query(Person).filter(Person.idExterno == self.idExterno, Person.idExterno != None).all() 
     if listPeople == []:
-      print('adding')
       self.id = db.session.query(func.max(Person.id)).all()[0][0]+1
       db.session.add(self)
       db.session.commit()
@@ -40,5 +45,4 @@ class Person(db.Model):
         self.qtdeHospedag = oldPerson.qtdeHospedag + 1
       db.session.merge(self)
       db.session.commit()
-      print('already exists')
 
